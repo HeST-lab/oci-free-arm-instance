@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 env:
   COMPARTMENT_ID: ${{ secrets.OCI_COMPARTMENT_ID }}
-  IMAGE_ID: "ocid1.image.oc1.ap-chuncheon-1.aaaaaaaameprwnxnihyezzgv2j5q7u5pykdeu6pysnc2htqlih2g4nb43tca"
+  IMAGE_ID: "ocid1.image.oc1.ap-chuncheon-1.aaaaaaaalcmf2em45er7hd7rc3mfm24ylgfogqefet6ajzujjx6jme7blosq"
   SUBNET_ID: ${{ secrets.OCI_SUBNET_ID }}
   AD_NAME: "QvSA:AP-CHUNCHEON-1-AD-1"
   OCI_CLI_REGION: "ap-chuncheon-1"
@@ -52,15 +52,6 @@ jobs:
           echo "${{ secrets.SSH_PUBLIC_KEY }}" > /home/runner/my_ssh_key.pub
 
           # Run the command, capture ALL output, and use '|| true' to prevent the script from exiting early.
-          oci compute image list \
-            --compartment-id "$COMPARTMENT_ID" \
-            --operating-system "Canonical Ubuntu" \
-            --operating-system-version "24.04" \
-            --shape "VM.Standard.A1.Flex" \
-            --all \
-            --query 'data[*].["display-name",id]' \
-            --output table
-
           OCI_OUTPUT=$(oci compute instance launch \
             --compartment-id "$COMPARTMENT_ID" \
             --availability-domain "$AD_NAME" \
