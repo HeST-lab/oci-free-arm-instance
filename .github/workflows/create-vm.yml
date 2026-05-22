@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 env:
   COMPARTMENT_ID: ${{ secrets.OCI_COMPARTMENT_ID }}
-  IMAGE_ID: "ocid1.image.oc1.ap-chuncheon-1.aaaaaaaavqqb4ffxcr7yd5hyut7lkxvzlf2us3fjxd7gc27pex2wspchqv7q"
+  IMAGE_ID: "ocid1.image.oc1.ap-chuncheon-1.aaaaaaaameprwnxnihyezzgv2j5q7u5pykdeu6pysnc2htqlih2g4nb43tca"
   SUBNET_ID: ${{ secrets.OCI_SUBNET_ID }}
   AD_NAME: "QvSA:AP-CHUNCHEON-1-AD-1"
   OCI_CLI_REGION: "ap-chuncheon-1"
